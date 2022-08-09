@@ -36,27 +36,22 @@ select.select_by_value('50000')
 # 확인 클릭
 driver.find_element('xpath', '//*[@id="btn2"]/button').click()
 
+
 print(driver.window_handles)
 
 # 로딩 기다리기
-time.sleep(5)
+time.sleep(1)
 
 print(driver.window_handles)
 
 # 최근 열린 탭으로 전환
-driver.switch_to.window(driver.window_handles[1])
+driver.switch_to.window(driver.window_handles[-1])
 
-driver.close()
-
-print(driver.window_handles)
+# 약관동의 전체 선택
+driver.find_element('xpath', '//*[@id="content"]/div[2]/div[1]/div[2]/div/div/span/label').click()
 
 # 전화번호 입력
-# driver.find_element('css_selector', '#cphoneNo').send_keys('87092257')
+driver.find_element('xpath', '//*[@id="cphoneNo"]').send_keys('87092257')
 
-
-# driver.find_element('xpath', '//*[@id="agreeAll"]').click()
-
-# # 폰번호 입력 및 인증번호 클릭
-# elem_phone = driver.find_element('xpath', '//*[@id="cphoneNo"]').click()
-# elem_phone.send_keys('87092257')
-# driver.find_element('xpath', '//*[@id="sendAuthNoBtn"]').click()
+# 인증번호 보내기 버튼 클릭
+driver.find_element('xpath', '//*[@id="sendAuthNoBtn"]').click()
