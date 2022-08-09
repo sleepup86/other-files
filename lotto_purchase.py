@@ -47,4 +47,4 @@ driver.find_element(
     'xpath', '//*[@id="popupLayerConfirm"]/div/div[2]/input[1]').click()
 
 # 크롬브라우저 종료
-driver.close()
+# driver.close()
