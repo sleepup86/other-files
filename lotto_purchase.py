@@ -48,3 +48,6 @@ driver.find_element(
 
 # 크롬브라우저 종료
 # driver.close()
+
+# 마이페이지
+driver.get('https://www.dhlottery.co.kr/userSsl.do?method=myPage')
