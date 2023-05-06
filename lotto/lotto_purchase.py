@@ -25,26 +25,57 @@ elem_login.send_keys(ip.PW)
 LOGIN_XPATH = '//*[@id="article"]/div[2]/div/form/div/div[1]/fieldset/div[1]/a'
 driver.find_element('xpath', LOGIN_XPATH).click()
 
-# 구매창 접속
+
+'''
+로또 구매
+'''
+
+# 구매창 접속(로또)
 driver.get('https://el.dhlottery.co.kr/game/TotalGame.jsp?LottoId=LO40')
 
-# 자동구매발급
+# 자동구매발급(로또)
 driver.switch_to.frame('ifrm_tab')
 driver.find_element('xpath', '//*[@id="num2"]').click()
 
-# 로또 구매 개수 선택
+# 로또 구매 개수 선택(로또)
 select = Select(driver.find_element('xpath', '//*[@id="amoundApply"]'))
 select.select_by_value('5')
 
-# 구매 확인 버튼 클릭
+# 개수 확인 버튼 클릭(로또)
 driver.find_element('xpath', '//*[@id="btnSelectNum"]').click()
 
-# 구매하기
+# 구매하기(로또)
 driver.find_element('xpath', '//*[@id="btnBuy"]').click()
 
-# 확인 버튼
+# 확인 버튼(로또)
 driver.find_element(
     'xpath', '//*[@id="popupLayerConfirm"]/div/div[2]/input[1]').click()
+
+
+''' 
+연금복권720 구매
+'''
+
+# 구매창 접속(연금복권720)
+driver.get('https://el.dhlottery.co.kr/game/TotalGame.jsp?LottoId=LP72')
+
+# 자동구매발급(연금복권720)
+driver.switch_to.frame('ifrm_tab')
+
+# 자동번호(연금복권720)
+driver.find_element('xpath', '//*[@class="lotto720_btn_auto_number"]').click()
+
+# 선택완료(연금복권720)
+driver.find_element(
+    'xpath', '//*[@class="lotto720_btn_confirm_number"]').click()
+
+# 구매하기 버튼 클릭(연금복권720)
+driver.find_element('xpath', '//*[@class="lotto720_btn_pay"]').click()
+
+# # 확인 버튼(연금복권720)
+driver.find_element(
+    'xpath', '//*[@id="lotto720_popup_confirm"]/div/div[3]/a[1]/span').click()
+
 
 # 크롬브라우저 종료
 # driver.close()
