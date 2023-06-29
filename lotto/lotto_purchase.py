@@ -1,12 +1,15 @@
 import ip
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import sys
 sys.path.append("")
 
+# DRIVER_PATH = 'C:/Users/syhyu/Desktop/workspace/python/chromedriver.exe'
+# driver = webdriver.Chrome(executable_path=DRIVER_PATH)
 
-DRIVER_PATH = 'C:/Users/syhyu/Desktop/workspace/python/chromedriver.exe'
-driver = webdriver.Chrome(executable_path=DRIVER_PATH)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # 동행복권 로그인 창 접속
 LOTTO_URL = 'https://dhlottery.co.kr/user.do?method=login&returnUrl='
