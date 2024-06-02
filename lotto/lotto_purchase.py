@@ -2,7 +2,7 @@ import ip
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.chrome.service import Service     # 다운로드 받아서 설치할 때 #
 # from webdriver_manager.chrome import ChromeDriverManager  # 다운로드 받아서 설치할 때 #
 import sys
 import time
@@ -13,7 +13,7 @@ sys.path.append("")
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
-# DRIVER_PATH = 'C:/Users/syhyu/Desktop/workspace/python/chromedriver.exe'
+# DRIVER_PATH = 'C:/Users/사용자/Desktop/workspace/python/chromedriver.exe'
 driver = webdriver.Chrome(options=chrome_options)
 
 # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
