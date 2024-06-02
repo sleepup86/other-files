@@ -2,11 +2,14 @@ import ip
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
+# from selenium.webdriver.chrome.service import Service     # 다운로드 받아서 설치할 때 #
+# from webdriver_manager.chrome import ChromeDriverManager  # 다운로드 받아서 설치할 때 #
 import sys
 import time
 
 sys.path.append("")
 
+# 브라우저 꺼짐 방지 옵션
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
