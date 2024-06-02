@@ -1,13 +1,18 @@
 import ip
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
-import time
 import sys
+import time
+
 sys.path.append("")
 
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
 
-DRIVER_PATH = 'C:/Users/syhyu/Desktop/workspace/python/chromedriver.exe'
-driver = webdriver.Chrome(executable_path=DRIVER_PATH)
+DRIVER_PATH = r"C:\Users\사용자\Desktop\workspace\python\chromedriver-win64\chromedriver.exe"
+# DRIVER_PATH = r"C:\Users\사용자\Desktop\workspace\python\edgedriver_win64\msedgedriver.exe"     # 엣지드라이브 #
+driver = webdriver.Chrome(options=chrome_options)
 
 # 동행복권 로그인 창 접속
 LOTTO_URL = 'https://dhlottery.co.kr/user.do?method=login&returnUrl='
@@ -30,29 +35,29 @@ driver.find_element('xpath', LOGIN_XPATH).click()
 driver.get('https://dhlottery.co.kr/payment.do?method=payment')
 
 # 충전금액 선택 50,000원
-select = Select(driver.find_element('xpath', '//*[@id="Amt"]'))
+select = Select(driver.find_element('xpath', '//*[@id="EcAmt"]'))
 select.select_by_value('50000')
 
 # 확인 클릭
 driver.find_element('xpath', '//*[@id="btn2"]/button').click()
 
 
-print(driver.window_handles)
+# print(driver.window_handles)
 
-# 로딩 기다리기
-time.sleep(3)
+# # 로딩 기다리기
+# time.sleep(3)
 
-print(driver.window_handles)
+# print(driver.window_handles)
 
-# 최근 열린 탭으로 전환
-driver.switch_to.window(driver.window_handles[-1])
+# # 최근 열린 탭으로 전환
+# driver.switch_to.window(driver.window_handles[-1])
 
-# 전화번호 입력
-driver.find_element('xpath', '//*[@id="cphoneNo"]').send_keys('87092257')
+# # 전화번호 입력
+# driver.find_element('xpath', '//*[@id="cphoneNo"]').send_keys('87092257')
 
-# 인증번호 보내기 버튼 클릭
-driver.find_element('xpath', '//*[@id="sendAuthNoBtn"]').click()
+# # 인증번호 보내기 버튼 클릭
+# driver.find_element('xpath', '//*[@id="sendAuthNoBtn"]').click()
 
-# 약관동의 전체 선택
-# driver.find_element(
-#     'xpath', '//*[@id="content"]/div[2]/div[1]/div[2]/div/div/span/label').click()
+# # 약관동의 전체 선택
+# # driver.find_element(
+# #     'xpath', '//*[@id="content"]/div[2]/div[1]/div[2]/div/div/span/label').click()
