@@ -2,8 +2,8 @@ import ip
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
-# from selenium.webdriver.chrome.service import Service     # 다운로드 받아서 설치할 때 #
-# from webdriver_manager.chrome import ChromeDriverManager  # 다운로드 받아서 설치할 때 #
+# from selenium.webdriver.chrome.service import Service       # 다운로드 받아서 설치할 때 #
+# from webdriver_manager.chrome import ChromeDriverManager    # 다운로드 받아서 설치할 때 #
 import sys
 import time
 
@@ -13,7 +13,8 @@ sys.path.append("")
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
-# DRIVER_PATH = 'C:/Users/사용자/Desktop/workspace/python/chromedriver.exe'
+DRIVER_PATH = r"C:\Users\syhyu\OneDrive\바탕 화면\workspace\python\chromedriver-win64\chromedriver.exe"
+# DRIVER_PATH = r"C:\Users\syhyu\Desktop\workspace\python\edgedriver_win64\msedgedriver.exe"     # 엣지드라이브 #
 driver = webdriver.Chrome(options=chrome_options)
 
 # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -85,15 +86,24 @@ driver.find_element(
     "xpath", '//*[@id="lotto720_popup_confirm"]/div/div[3]/a[1]/span'
 ).click()
 
-# 구매완료 후 닫기 버튼 클릭(연금복권720)
-driver.find_element("xpath", '//*[@id="lotto720_popup_pay"]/div/div[3]/a[1]/span').click()
+# # 구매완료 후 닫기 버튼 클릭(연금복권720)
+# driver.find_element("xpath", '//*[@id="lotto720_popup_pay"]/div/div[3]/a[1]/span').click()
 
 
-# 크롬브라우저 종료
+# # 크롬브라우저 종료
 # driver.close()
 
-# 로딩 기다리기
+# # 로딩 기다리기
 # time.sleep(5)
 
-# 마이페이지
-driver.get("https://dhlottery.co.kr/userSsl.do?method=myPage")
+# # 마이페이지
+# driver.get("https://dhlottery.co.kr/userSsl.do?method=myPage")
+
+# 구매 당첨내역 페이지
+driver.get("https://www.dhlottery.co.kr/myPage.do?method=lottoBuyListView")
+
+# 조회기간 1개월 설정
+driver.find_element("xpath", "//a[contains(text(), '1개월')]").click()
+
+# 구매 당첨내역 조회
+driver.find_element("xpath", "//a[@id='submit_btn']").click()

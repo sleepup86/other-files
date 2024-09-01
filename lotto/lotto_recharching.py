@@ -2,8 +2,8 @@ import ip
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
-# from selenium.webdriver.chrome.service import Service     # 다운로드 받아서 설치할 때 #
-# from webdriver_manager.chrome import ChromeDriverManager  # 다운로드 받아서 설치할 때 #
+# from selenium.webdriver.chrome.service import Service       # 다운로드 받아서 설치할 때 #
+# from webdriver_manager.chrome import ChromeDriverManager    # 다운로드 받아서 설치할 때 #
 import sys
 import time
 
@@ -13,9 +13,11 @@ sys.path.append("")
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
-DRIVER_PATH = r"C:\Users\사용자\Desktop\workspace\python\chromedriver-win64\chromedriver.exe"
-# DRIVER_PATH = r"C:\Users\사용자\Desktop\workspace\python\edgedriver_win64\msedgedriver.exe"     # 엣지드라이브 #
+DRIVER_PATH = r"C:\Users\syhyu\OneDrive\바탕 화면\workspace\python\chromedriver-win64\chromedriver.exe"
+# DRIVER_PATH = r"C:\Users\syhyu\Desktop\workspace\python\edgedriver_win64\msedgedriver.exe"     # 엣지드라이브 #
 driver = webdriver.Chrome(options=chrome_options)
+
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # 동행복권 로그인 창 접속
 LOTTO_URL = 'https://dhlottery.co.kr/user.do?method=login&returnUrl='
